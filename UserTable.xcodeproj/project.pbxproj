@@ -13,6 +13,8 @@
 		940031461CF3877400413C18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 940031441CF3877400413C18 /* Main.storyboard */; };
 		940031481CF3877400413C18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 940031471CF3877400413C18 /* Assets.xcassets */; };
 		9400314B1CF3877400413C18 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 940031491CF3877400413C18 /* LaunchScreen.storyboard */; };
+		940031531CF49A4D00413C18 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940031521CF49A4D00413C18 /* Person.swift */; };
+		940031551CF49AB400413C18 /* PersonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940031541CF49AB400413C18 /* PersonViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		940031471CF3877400413C18 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9400314A1CF3877400413C18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9400314C1CF3877400413C18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		940031521CF49A4D00413C18 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		940031541CF49AB400413C18 /* PersonViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				940031471CF3877400413C18 /* Assets.xcassets */,
 				940031491CF3877400413C18 /* LaunchScreen.storyboard */,
 				9400314C1CF3877400413C18 /* Info.plist */,
+				940031521CF49A4D00413C18 /* Person.swift */,
+				940031541CF49AB400413C18 /* PersonViewModel.swift */,
 			);
 			path = UserTable;
 			sourceTree = "<group>";
@@ -99,6 +105,7 @@
 				TargetAttributes = {
 					9400313A1CF3877400413C18 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = V89XV7JPM2;
 					};
 				};
 			};
@@ -139,7 +146,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				940031431CF3877400413C18 /* SecondViewController.swift in Sources */,
+				940031551CF49AB400413C18 /* PersonViewModel.swift in Sources */,
 				9400313F1CF3877400413C18 /* AppDelegate.swift in Sources */,
+				940031531CF49A4D00413C18 /* Person.swift in Sources */,
 				940031411CF3877400413C18 /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -255,6 +264,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = UserTable/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Maxim.UserTable;
@@ -266,6 +276,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = UserTable/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Maxim.UserTable;

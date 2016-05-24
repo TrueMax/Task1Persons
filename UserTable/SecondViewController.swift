@@ -8,16 +8,38 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var tableView: UITableView!
+    var persons2: [Person]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        persons2 = persons
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        tableView.separatorColor = .blueColor()
+        tableView.separatorInset.right = 10
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBAction func refreshTableData(sender: AnyObject) {
+        tableView.reloadData()
+    }
+    
+    // MARK: - tableView datasource methods
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return persons2!.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("SecondCell", forIndexPath: indexPath)
+        cell.textLabel?.text = persons2![indexPath.row].personName
+        cell.detailTextLabel?.text = persons2![indexPath.row].personCountry
+        return cell
     }
 
 
