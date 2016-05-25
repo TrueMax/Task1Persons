@@ -11,34 +11,45 @@ import UIKit
 class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
-    var persons2: [Person]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        persons2 = persons
         
         tableView.delegate = self
         tableView.dataSource = self
         
         tableView.separatorColor = .blueColor()
         tableView.separatorInset.right = 10
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
     }
     
     @IBAction func refreshTableData(sender: AnyObject) {
-        tableView.reloadData()
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)){
+        let randomIndex = Int(arc4random_uniform(UInt32(persons.count)))
+        persons = changePersons(persons, index: randomIndex)
+        }
+        dispatch_async(dispatch_get_main_queue()){
+        self.tableView.reloadData()
+        }
     }
     
     // MARK: - tableView datasource methods
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return persons2!.count
+        return persons.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("SecondCell", forIndexPath: indexPath)
-        cell.textLabel?.text = persons2![indexPath.row].personName
-        cell.detailTextLabel?.text = persons2![indexPath.row].personCountry
+        cell.textLabel?.text = persons[indexPath.row].personName
+        cell.detailTextLabel?.text = persons[indexPath.row].personCountry
         return cell
     }
 
